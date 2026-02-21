@@ -18,10 +18,10 @@ class CryptoController extends Controller
         $user = User::first(); 
         return $service->deposit(
             // auth()->user(),
+            Str::uuid(),
             $user,
             $request->amount,
-            $request->tx_hash,
-            Str::uuid()
+            $request->tx_hash
         );
     }
 
@@ -33,8 +33,8 @@ class CryptoController extends Controller
         $user = User::first(); 
         return $service->withdraw(
             // auth()->user(),
-            $request->amount,
-            Str::uuid()
+            Str::uuid(),
+            $request->amount
         );
     
 }
